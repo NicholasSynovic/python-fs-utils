@@ -4,8 +4,7 @@
 
 ## About
 
-`pyfs` is for my personal use in performing file system operations via
-Python.
+`pyfs` is for my personal use in performing file system operations via Python.
 
 This project came about because a lot of my current work involves dealing with
 files stored on my computer, but Python's default file path handling is
@@ -21,8 +20,9 @@ zero external dependencies (aside from `poetry` to build the project).
 
 ## How to Install
 
-This utility library should be cross compatible across platforms as it only relies on standard Python.
-However, this has not been tested. So far only Linux x86-64 has been tested and validated to work with this utility.
+This utility library should be cross compatible across platforms as it only
+relies on standard Python. However, this has not been tested. So far only Linux
+x86-64 has been tested and validated to work with this utility.
 
 ### Dependencies
 
