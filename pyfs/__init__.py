@@ -1,5 +1,7 @@
+from os import listdir
 from os.path import abspath, expanduser, isdir, isfile
 from pathlib import Path
+from typing import List
 
 
 def resolvePath(path: Path) -> Path:
@@ -42,3 +44,24 @@ def isDirectory(path: Path) -> bool:
     :rtype: bool
     """
     return isdir(s=resolvePath(path=path))
+
+
+def listDirectory(path: Path) -> List[Path]:
+    """
+    listDirectory
+
+    An extension of the os.listdif() function that returns the absolute value of a path rather than the relative path of files within a directory
+
+    :param path: Path to list files from
+    :type path: Path
+    :return: List[Path] of files in the directory; is empty if the directory does not exist.
+    :rtype: List[Path]
+    """
+    absolutePath: Path = resolvePath(path=path)
+    if isDirectory(path=absolutePath):
+        return [
+            resolvePath(path=Path(absolutePath, file))
+            for file in listdir(path=absolutePath)
+        ]
+    else:
+        return []
