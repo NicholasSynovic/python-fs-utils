@@ -1,7 +1,28 @@
 from os import listdir
 from os.path import abspath, expanduser, isdir, isfile
 from pathlib import Path
+from subprocess import PIPE, CompletedProcess, run
 from typing import List
+
+
+def runCommand(cmd: str) -> CompletedProcess[bytes]:
+    """
+    runCommand
+
+    Execute shell command or program in the current process of the Python script. Python program execution will continue after the shell command has completed or exited
+
+    :param cmd: Shell command or program to execute
+    :type cmd: str
+    :return: A CompletedProcess object that allows for analysis of stderr and stdout
+    :rtype: CompletedProcess[bytes]
+    """
+    execution: CompletedProcess[bytes] = run(
+        args=cmd.split(sep=" "),
+        stdout=PIPE,
+        stderr=PIPE,
+    )
+    return execution
+
 
 
 def resolvePath(path: Path) -> Path:
